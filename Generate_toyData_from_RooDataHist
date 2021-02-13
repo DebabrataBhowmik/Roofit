@@ -1,0 +1,50 @@
+root -l sig_2HDMa_mA500_ma150_13TeV.root
+.ls
+TFile**		sig_2HDMa_mA500_ma150_13TeV.root	
+ TFile*		sig_2HDMa_mA500_ma150_13TeV.root	
+  KEY: TObjString	cfg;1	Collectable string class
+  KEY: RooWorkspace	wtemplates;1	wtemplates
+  KEY: TProcessID	ProcessID0;1	3592a4d4-697c-11eb-8e7c-c975b8bcbeef
+
+root [2] wtemplates->Print()
+
+RooWorkspace(wtemplates) wtemplates contents
+
+variables
+---------
+(mgg,model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130_norm,model_signal_sig_2HDMa_mA500_ma150_13TeV_met130_norm)
+
+p.d.f.s
+-------
+RooHistPdf::model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130[ pdfObs=(mgg) ] = 0.0586715
+RooHistPdf::model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130_energyScalemet0_130Down[ pdfObs=(mgg) ] = 11.304
+RooHistPdf::model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130_energyScalemet0_130Up[ pdfObs=(mgg) ] = 87.4575
+RooHistPdf::model_signal_sig_2HDMa_mA500_ma150_13TeV_met130[ pdfObs=(mgg) ] = 0.222384
+RooHistPdf::model_signal_sig_2HDMa_mA500_ma150_13TeV_met130_energyScalemet130Down[ pdfObs=(mgg) ] = 6.86606
+RooHistPdf::model_signal_sig_2HDMa_mA500_ma150_13TeV_met130_energyScalemet130Up[ pdfObs=(mgg) ] = 70.58
+
+datasets
+--------
+RooDataHist::signal_sig_2HDMa_mA500_ma150_13TeV_met0_130(mgg)
+RooDataHist::signalforPdf_sig_2HDMa_mA500_ma150_13TeV_met0_130(mgg)
+RooDataHist::signal_sig_2HDMa_mA500_ma150_13TeV_met130(mgg)
+RooDataHist::signalforPdf_sig_2HDMa_mA500_ma150_13TeV_met130(mgg)
+
+embedded datasets (in pdfs and functions)
+-----------------------------------------
+RooDataHist::signalforPdf_sig_2HDMa_mA500_ma150_13TeV_met0_130(mgg)
+RooDataHist::model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130_dataSet_energyScalemet0_130Up(mgg)
+RooDataHist::model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130_dataSet_energyScalemet0_130Down(mgg)
+RooDataHist::signalforPdf_sig_2HDMa_mA500_ma150_13TeV_met130(mgg)
+RooDataHist::model_signal_sig_2HDMa_mA500_ma150_13TeV_met130_dataSet_energyScalemet130Up(mgg)
+RooDataHist::model_signal_sig_2HDMa_mA500_ma150_13TeV_met130_dataSet_energyScalemet130Down(mgg)
+
+ wtemplates->cd()
+ RooRealVar* x = mgg
+ RooDataSet* data3 = model_signal_sig_2HDMa_mA500_ma150_13TeV_met0_130->generate(*x,10000)
+ RooPlot* frame =x->frame()
+ data3->plotOn(frame)
+ frame->Draw()
+ 
+ 
+ 
